@@ -9,12 +9,14 @@
   /* --standard-border-radius: 5px;  */
   --standard-border-radius: 0; 
 
+  --border-width: 0.0625rem;
+
   /* Default (light) theme */
   --bg: #fff;
   --accent-bg: #f5f7ff;
-  --text: #212121;
+  --text-color: #212121;
   --text-light: #585858;
-  --border: #898EA4;
+  --border-color: #898EA4;
   --accent: #0d47a1;
   --accent-hover: #1266e2;
   --accent-text: var(--bg);
@@ -22,6 +24,8 @@
   --preformatted: #444;
   --marked: #ffdd33;
   --disabled: #efefef;
+
+
 }
 
 /* Dark theme */
@@ -31,11 +35,14 @@
     color-scheme: dark;
     --bg: #212121;
     --accent-bg: #2b2b2b;
-    --text: #dcdcdc;
+    --text-color: #dcdcdc;
     --text-light: #ababab;
-    --accent: #ffb300;
-    --accent-hover: #ffe099;
-    --accent-text: var(--bg);
+    /* --accent: #ffb300; */
+    /* --accent-hover: #ffe099; */
+    /* --accent-text: var(--bg); */
+    --accent: #525f7a;
+    --accent-hover: #5d6b89;
+    --accent-text: var(--text-color);
     --code: #f06292;
     --preformatted: #ccc;
     --disabled: #111;
@@ -70,7 +77,7 @@ html {
 
 /* Make the body a nice central block */
 body {
-  color: var(--text);
+  color: var(--text-color);
   background-color: var(--bg);
   /* font-size: 1.15rem; */
   /* line-height: 1.5; */
@@ -85,7 +92,7 @@ body {
 /* Make the header bg full width, but the content inline with body */
 /* body > header { */
 /*   background-color: var(--accent-bg); */
-/*   border-bottom: 1px solid var(--border); */
+/*   border-bottom: 1px solid var(--border-color); */
 /*   text-align: center; */
 /*   padding: 0 0.5rem 2rem 0.5rem; */
 /*   grid-column: 1 / -1; */
@@ -116,7 +123,7 @@ body {
 /*   color: var(--text-light); */
 /*   font-size: 0.9rem; */
 /*   text-align: center; */
-/*   border-top: 1px solid var(--border); */
+/*   border-top: 1px solid var(--border-color); */
 /* } */
 
 /* Format headers */
@@ -202,7 +209,8 @@ input[type="submit"],
 input[type="reset"],
 input[type="button"],
 label[type="button"] {
-  border: 1px solid var(--accent);
+  /* border: 1px solid var(--accent); */
+  border: var(--border-width) solid var(--accent);
   background-color: var(--accent);
   color: var(--accent-text);
   padding: 0.5rem 0.9rem;
@@ -284,9 +292,9 @@ header > nav ol li {
 /* header > nav a, */
 /* header > nav a:visited { */
 /*   margin: 0 0.5rem 1rem 0.5rem; */
-/*   border: 1px solid var(--border); */
+/*   border: 1px solid var(--border-color); */
 /*   border-radius: var(--standard-border-radius); */
-/*   color: var(--text); */
+/*   color: var(--text-color); */
 /*   display: inline-block; */
 /*   padding: 0.1rem 1rem; */
 /*   text-decoration: none; */
@@ -313,7 +321,7 @@ header > nav ol li {
 /* Consolidate box styling */
 /* aside, details, pre, progress { */
 /*   background-color: var(--accent-bg); */
-/*   border: 1px solid var(--border); */
+/*   border: 1px solid var(--border-color); */
 /*   border-radius: var(--standard-border-radius); */
 /*   margin-bottom: 1rem; */
 /* } */
@@ -339,7 +347,7 @@ header > nav ol li {
 /* } */
 
 article, fieldset, dialog {
-  /* border: 1px solid var(--border); */
+  /* border: 1px solid var(--border-color); */
   border: none;
   /* padding: 1rem; */
   padding: 0;
@@ -354,8 +362,8 @@ article, fieldset, dialog {
 /* } */
 
 /* section { */
-/*   border-top: 1px solid var(--border); */
-/*   border-bottom: 1px solid var(--border); */
+/*   border-top: 1px solid var(--border-color); */
+/*   border-bottom: 1px solid var(--border-color); */
 /*   padding: 2rem 1rem; */
 /*   margin: 3rem 0; */
 /* } */
@@ -408,7 +416,8 @@ table {
 
 td,
 th {
-  border: 1px solid var(--border);
+  /* border: 1px solid var(--border-color); */
+  border: var(--border-width) solid var(--border-color);
   text-align: start;
   padding: 0.5rem;
 }
@@ -446,9 +455,10 @@ button,
 textarea,
 select,
 input {
-  color: var(--text);
+  color: var(--text-color);
   background-color: var(--bg);
-  border: 1px solid var(--border);
+  /* border: 1px solid var(--border-color); */
+  border: var(--border-width) solid var(--border-color);
 }
 label {
   display: block;
@@ -459,8 +469,8 @@ textarea:not([cols]) {
 
 /* Add arrow to drop-down */
 select:not([multiple]) {
-  background-image: linear-gradient(45deg, transparent 49%, var(--text) 51%),
-    linear-gradient(135deg, var(--text) 51%, transparent 49%);
+  background-image: linear-gradient(45deg, transparent 49%, var(--text-color) 51%),
+    linear-gradient(135deg, var(--text-color) 51%, transparent 49%);
   background-position: calc(100% - 15px), calc(100% - 10px);
   background-size: 5px 5px, 5px 5px;
   background-repeat: no-repeat;
@@ -530,10 +540,10 @@ input[type="radio"]:checked::after {
 /* } */
 
 /* Set a height for color input */
-input[type="color"] {
-  height: 2.5rem;
-  padding:  0.2rem;
-}
+/* input[type="color"] { */
+/*   height: 2.5rem; */
+/*   padding:  0.2rem; */
+/* } */
 
 /* do not show border around file selector button */
 input[type="file"] {
@@ -543,8 +553,9 @@ input[type="file"] {
 /* Misc body elements */
 hr {
   border: none;
-  height: 1px;
-  background: var(--border);
+  /* height: 1px; */
+  height: var(--border-width);
+  background: var(--border-color);
   margin: 1rem auto;
 }
 
@@ -641,44 +652,44 @@ samp {
 /* Progress bars */
 /* Declarations are repeated because you */
 /* cannot combine vendor-specific selectors */
-progress {
-  width: 100%;
-}
+/* progress { */
+/*   width: 100%; */
+/* } */
 
-progress:indeterminate {
-  background-color: var(--accent-bg);
-}
+/* progress:indeterminate { */
+/*   background-color: var(--accent-bg); */
+/* } */
 
-progress::-webkit-progress-bar {
-  border-radius: var(--standard-border-radius);
-  background-color: var(--accent-bg);
-}
+/* progress::-webkit-progress-bar { */
+/*   border-radius: var(--standard-border-radius); */
+/*   background-color: var(--accent-bg); */
+/* } */
 
-progress::-webkit-progress-value {
-  border-radius: var(--standard-border-radius);
-  background-color: var(--accent);
-}
+/* progress::-webkit-progress-value { */
+/*   border-radius: var(--standard-border-radius); */
+/*   background-color: var(--accent); */
+/* } */
 
-progress::-moz-progress-bar {
-  border-radius: var(--standard-border-radius);
-  background-color: var(--accent);
-  transition-property: width;
-  transition-duration: 0.3s;
-}
+/* progress::-moz-progress-bar { */
+/*   border-radius: var(--standard-border-radius); */
+/*   background-color: var(--accent); */
+/*   transition-property: width; */
+/*   transition-duration: 0.3s; */
+/* } */
 
-progress:indeterminate::-moz-progress-bar {
-  background-color: var(--accent-bg);
-}
+/* progress:indeterminate::-moz-progress-bar { */
+/*   background-color: var(--accent-bg); */
+/* } */
 
 /* dialog { */
 /*   max-width: 40rem; */
 /*   margin: auto; */
 /* } */
 
-dialog::backdrop {
-  background-color: var(--bg);
-  opacity: 0.8;
-}
+/* dialog::backdrop { */
+/*   background-color: var(--bg); */
+/*   opacity: 0.8; */
+/* } */
 
 /* @media only screen and (max-width: 720px) { */
 /*   dialog { */
@@ -705,7 +716,7 @@ dialog::backdrop {
 /* Classes for notices */
 /* .notice { */
 /*   background: var(--accent-bg); */
-/*   border: 2px solid var(--border); */
+/*   border: 2px solid var(--border-color); */
 /*   border-radius: var(--standard-border-radius); */
 /*   padding: 1.5rem; */
 /*   margin: 2rem 0; */
