@@ -4,3 +4,24 @@
 body {
   padding: 0.5rem;
 }
+
+/* Make the tables a readable format on small screens */
+@media (max-width: 624px) {
+  thead {
+    display: none;
+  }
+  
+  td {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  td::before {
+    content: attr(title);
+  }
+
+  td:last-of-type {
+    border-bottom: 1px solid lightblue;
+  }
+
+}
