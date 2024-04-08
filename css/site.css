@@ -1,2 +1,6 @@
 @import url('simple.css');
 @import url('menu.css');
+
+body {
+  padding: 0.5rem;
+}
